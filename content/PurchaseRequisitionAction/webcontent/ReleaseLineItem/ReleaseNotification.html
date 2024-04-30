@@ -1,0 +1,210 @@
+<html>
+<head>
+<style>
+<!--
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0cm;
+	margin-bottom:.0001pt;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link
+	{color:#0563C1;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited
+	{color:#954F72;
+	text-decoration:underline;
+	text-underline:single;}
+table {
+border:none 1.0pt; border-spacing:0; padding:0; border-collapse:collapse;
+}
+table#a td { border:1.0pt none #8EAADB; }
+table#b td { border:1.0pt none #8EAADB; }
+table#c td { border:1.0pt none #8EAADB; }
+table#a{ color:#2F5496; }
+table#b{ color:#2F5496; }
+table#c{ color:#2F5496; }
+-->
+</style>
+</head>
+
+<body bgcolor="#FFFFFF">
+
+<p class=MsoNormal>Dear ${context.WorkflowContext.Requestor.Name},</p>
+<br>
+<p class=MsoNormal>Purchase Requisition - <b>${context.ID} / ${context.ItemNumber}</b> created by you, was succesfully Released.</p>
+<br>
+<br>
+<br>
+
+<table width="600px" id="a">
+ <tr>
+  <td width=506 colspan=2 valign=top style='border-bottom-style:solid;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b><i>Requisition Header</i></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=right style='text-align:right'><i>Requsition Date</i></p>
+  </td>
+  <td width=412 valign=top style='border-bottom-style:solid;border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>${context.WorkflowContext.LineItem.PREQ_DATE}</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=right style='text-align:right'><i>Created by</i></p>
+  </td>
+  <td width=412 valign=top style='border-left: none;border-bottom-style:solid;border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>${context.WorkflowContext.LineItem.CREATED_BY}</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=right style='text-align:right'><i>Requested by</i></p>
+  </td>
+  <td width=412 valign=top style='border-bottom-style:solid;border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>${context.WorkflowContext.LineItem.PREQ_NAME}</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=right style='text-align:right'><i>Requisition Number</i></p>
+  </td>
+  <td width=412 valign=top style='border-left: none;border-bottom-style:solid;border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>${context.ID}</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=right style='text-align:right'><i>Item Number</i></p>
+  </td>
+  <td width=412 valign=top style='border-bottom-style:solid;border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>${context.ItemNumber}</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=right style='text-align:right'><i>Document Type</i></p>
+  </td>
+  <td width=412 valign=top style='border-bottom-style:solid;border-right-style:solid;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>${context.WorkflowContext.LineItem.DOC_TYPE}</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=95 valign=top style='border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=right style='text-align:right'><i>Requestor Comment</i></p>
+  </td>
+  <td width=412 valign=top style='border-left: none;border-bottom-style:solid;border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>${context.WorkflowContext.LineItem.REQ_COMMENT}</p>
+  </td>
+ </tr>
+</table>
+
+<br>
+
+<table width="600px" id="c">
+ <tr>
+  <td width=520 colspan=2 valign=top style='border-bottom-style:solid;padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal><b><i>Requisition item ${context.ItemNumber} data</i></b></p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 valign=top style='border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=right style='text-align:right'><i>Material</i></p>
+  </td>
+  <td width=359 valign=top style='border-bottom-style:solid;border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>${context.WorkflowContext.LineItem.MATERIAL}</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 valign=top style='border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=right style='text-align:right'><i>Description</i></p>
+  </td>
+  <td width=359 valign=top style='border-left: none;border-bottom-style:solid;border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>${context.WorkflowContext.LineItem.SHORT_TEXT}</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 valign=top style='border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=right style='text-align:right'><i>Document Type</i></p>
+  </td>
+  <td width=359 valign=top style='border-left: none;border-bottom-style:solid;border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>${context.WorkflowContext.LineItem.DOC_TYPE}</p>
+  </td>
+ </tr>
+ <tr>
+  <td width=161 valign=top style='border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=right style='text-align:right'><i>Purchasing Group</i></p>
+  </td>
+  <td width=359 valign=top style='border-bottom-style:solid;border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>${context.WorkflowContext.LineItem.PUR_GROUP}</p>
+ </tr>
+ <tr>
+  <td width=161 valign=top style='border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=right style='text-align:right'><i>Purchasing Organisation</i></p>
+  </td>
+  <td width=359 valign=top style='border-bottom-style:solid;border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>${context.WorkflowContext.LineItem.PURCH_ORG}</p>
+ </tr> 
+ <tr>
+  <td width=161 valign=top style='border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=right style='text-align:right'><i>Plant</i></p>
+  </td>
+  <td width=359 valign=top style='border-bottom-style:solid;border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>${context.WorkflowContext.LineItem.PLANT}</p>
+ </tr> 
+ <tr>
+  <td width=161 valign=top style='border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=right style='text-align:right'><i>Quantity</i></p>
+  </td>
+  <td width=359 valign=top style='border-bottom-style:solid;border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>${context.WorkflowContext.LineItem.QUANTITY}</p>
+ </tr> 
+ <tr>
+  <td width=161 valign=top style='border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=right style='text-align:right'><i>Unit</i></p>
+  </td>
+  <td width=359 valign=top style='border-bottom-style:solid;border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>${context.WorkflowContext.LineItem.UNIT}</p>
+ </tr> 
+ <tr>
+  <td width=161 valign=top style='border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=right style='text-align:right'><i>Price</i></p>
+  </td>
+  <td width=359 valign=top style='border-bottom-style:solid;border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>${context.WorkflowContext.LineItem.C_AMT_BAPI}</p>
+ </tr> 
+ <tr>
+  <td width=161 valign=top style='border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=right style='text-align:right'><i>Currency</i></p>
+  </td>
+  <td width=359 valign=top style='border-bottom-style:solid;border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>${context.WorkflowContext.LineItem.CURRENCY}</p>
+ </tr> 
+ <tr>
+  <td width=161 valign=top style='border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal align=right style='text-align:right'><i>Delivery Date</i></p>
+  </td>
+  <td width=359 valign=top style='border-bottom-style:solid;border-right-style:solid; padding:0cm 5.4pt 0cm 5.4pt'>
+  <p class=MsoNormal>${context.WorkflowContext.LineItem.DELIV_DATE}</p>
+ </tr>  
+  
+ 
+</table>
+
+<br><br>
+
+<p class=MsoNormal><i><span>This is an automatically created message.</span></i></p>
+
+
+<br>
+
+</body>
+</html>
